@@ -15,8 +15,13 @@ public class PersonUtil {
         fakePerson.setId(faker.random().nextLong());
         fakePerson.setFirstName(faker.name().firstName());
         fakePerson.setLastName(faker.name().lastName());
-        fakePerson.setAdress(
-                faker.address().fullAddress());
+        fakePerson.setAdress(faker.address()
+                .streetName()
+                .concat(String.format(", %s", faker.address().streetAddressNumber()))
+                .concat(String.format(" - %s", faker.address().secondaryAddress()))
+                .concat(String.format(" - %s", faker.address().cityName()))
+                .concat(String.format("/%s", faker.address().stateAbbr()))
+                .concat(String.format(" CEP: %s", faker.address().zipCode())));
         fakePerson.setGender(faker.demographic().sex());
         return fakePerson;
     }
