@@ -40,4 +40,18 @@ public class PersonService {
 
         return person;
     }
+
+    public Person create(Person person) {
+
+        logger.info("creating one person!");
+
+        return person;
+    }
+
+    public Person update(Person person) {
+
+        logger.info("updating one person!");
+
+        return person;
+    }
 }
